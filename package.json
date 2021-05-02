@@ -1,0 +1,19 @@
+{
+  "name": "bakis21",
+  "version": "1.0.0",
+  "description": "Bakalauro projekto web dalis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TadasLTU/bakis21.git"
+  },
+  "author": "Tadas Semionovas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TadasLTU/bakis21/issues"
+  },
+  "homepage": "https://github.com/TadasLTU/bakis21#readme"
+}
