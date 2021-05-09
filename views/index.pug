@@ -1,0 +1,52 @@
+extends layout
+
+block menu 
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        ul.navbar-nav
+        a.navbar-brand(href='/') Patalpų šildymo valdymo ir kontrolės sistema
+        ul.navbar-nav-rigth
+            | Sveiki, Vartotojas
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+            ul.navbar-nav
+                  li.nav-item.active
+                    a.nav-link(href='/') Pradžia 
+                    //-   span.sr-only (current)
+                  li.nav-item
+                    a.nav-link(href='#') Peržiūrėti patalpų duomenis
+                  li.nav-item
+                    a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                      | Valdyti patalpų parametrus
+                    .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                      a.dropdown-item(href='#') Adm. Sudaryti spec. tvarkaraštį
+                      a.dropdown-item(href='#') Sudaryti tvarkarastį
+                      a.dropdown-item(href='#') Peržiūrėti patalpų parametrus
+                    li.nav-item
+                        a.nav-link(href='#') Adm. Šildymo sezoniškumo valdymas
+                    li.nav-item
+                        a.nav-link(href='#') Adm. Valdyti valdiklių nustatymus
+                    li.nav-item
+                        a.nav-link(href='#') Adm. Valdyti vartotojus
+
+
+block content 
+    div(class="row move-down")
+        div(class="col-md-8")
+            a(href="/cat", class="btn btn-primary", role="button")
+                span(class="glyphicon glyphicon-list")
+                |  Kategorijos
+            | 
+            a(href="/note/new", class="btn btn-primary", role="button")
+                span(class="glyphicon glyphicon-plus")
+                |  Naujas užrašas
+    div(class="row move-down")
+        div(class="col-md-8")
+            table(class="table table-striped table-hover")
+                thead
+                    tr
+                        th Pavadinimas                                
+                        th Kategorija
+                        th 
+                        th(class="text-right") Veiksmai
+                tbody
+                    each note in data
+                        include note_row
