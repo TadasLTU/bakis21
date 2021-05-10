@@ -1,0 +1,58 @@
+extends layout
+
+block content 
+    form.form-horizontal(action='/user/register' method='POST')
+        fieldset
+            #legend
+                legend Registruoti naują vartotoją
+            .control-group
+                // Name
+                label.control-label(for='name') Vardas
+                .controls
+                    input#username.input-xlarge(type='text' name='name' placeholder='Vardenis')
+                    p.help-block Kuriamo vartotojo vardas
+            .control-group
+                // Lname
+                label.control-label(for='lname') Pavardė
+                .controls
+                    input#username.input-xlarge(type='text' name='lname' placeholder='Pavardenis')
+                    p.help-block Kuriamo vartotojo pavardė
+            .control-group
+                // E-mail
+                label.control-label(for='email') El. paštas
+                .controls
+                    input#email.input-xlarge(type='text' name='email' placeholder='someone@sth.com')
+                    p.help-block Kuriamo vartotojo el. paštas
+                // Phone
+                label.control-label(for='phone') Telefono numeris
+                .controls
+                    input#email.input-xlarge(type='text' name='phone' placeholder='+37061330290')
+                    p.help-block Kuriamo vartotojo telefono numeris
+                    p.help-block Formatas: +3700000000
+            .control-group
+                // Password
+                label.control-label(for='password') Slaptažodis
+                .controls
+                    input#password.input-xlarge(type='password' name='password' placeholder='')
+                    p.help-block 
+                        | Minimalūs slaptažodžio reikalavimai:
+                    ul
+                        li Slaptažodį sudaro bent 8 simboliai
+                        li Bent viena didžioji raidė
+                        li bent viena mažoji raidė
+                        li bent vienas simbolis
+            .control-group
+                // Password
+                label.control-label(for='password2') Slaptažodis (Patvirtinimas)
+                .controls
+                    input#password_confirm.input-xlarge(type='password' name='password2' placeholder='')
+                    p.help-block Prašome patvirtinti slaptažodį
+            .control-group
+                // Button
+                .controls
+                    button.btn.btn-success Registruoti 
+
+
+
+
+

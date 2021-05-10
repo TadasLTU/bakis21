@@ -1,26 +1,42 @@
-extends layout
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container-fluid
+      a.navbar-brand(href='/') Patalpų šildymo valdymo ir kontrolės sistema
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavDropdown.collapse.navbar-collapse
+      div(class="row move-down")
+        ul(class='navbar-nav-rigth')
+        | Sveiki, Vartotojas
+        a(href='/user/logout' class='btn btn-secondary' role='button') Atsijungti
 
-block menu 
-	nav.navbar.navbar-expand-lg.navbar-light.bg-light
-          a.navbar-brand(href='#') Navbar
-          button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-          #navbarNavDropdown.collapse.navbar-collapse
-            ul.navbar-nav
-                  li.nav-item.active
-                    a.nav-link(href='#')
-                      | Home 
-                      span.sr-only (current)
-                  li.nav-item
-                    a.nav-link(href='#') Features
-                  li.nav-item
-                    a.nav-link(href='#') Pricing
-                  li.nav-item.dropdown
-                    a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                      | Dropdown link
-                    .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                      a.dropdown-item(href='#') Action
-                      a.dropdown-item(href='#') Another action
-                      a.dropdown-item(href='#') Something else here	
-
-                
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Pradžia 
+          li.nav-item
+            a.nav-link(href='/roomData/show') Peržiūrėti patalpų duomenis
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false' id='ss')
+              | Valdyti patalpų parametrus
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                li
+                    a.dropdown-item(href='#') Adm. Sudaryti spec. tvarkaraštį
+                li
+                    a.dropdown-item(href='#') Sudaryti tvarkarastį
+                li
+                    a.dropdown-item(href='#') Peržiūrėti patalpų parametrus
+          li.nav-item
+            a.nav-link(href='/') Adm. Šildymo sezoniškumo valdymas   
+          li.nav-item
+            a.nav-link(href='/') Adm. Valdyti valdiklių nustatymus   
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false' id='ss1')
+              | Adm. Valdyti vartotojus
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                li
+                    a.dropdown-item(href='/user/register') Pridėti naują vartotoją
+                li
+                    a.dropdown-item(href='#') Sudaryti tvarkarastį
+                li
+                    a.dropdown-item(href='#') Peržiūrėti patalpų parametrus      
+            
