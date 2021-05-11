@@ -29,8 +29,13 @@ require('./config/passport')(passport);
 
 /*** db aprasymas ***/
 // var db = new sqlite3.Database('./data/notes.db');
+// Development
+// mongoose.connect('mongodb://root:example@127.0.0.1:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true, useUnifiedTopology : true})
+// .then(() => console.log('Connected to MongoDB'))
+// .catch((err)=> console.log(err));
 
-mongoose.connect('mongodb://root:example@127.0.0.1:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true, useUnifiedTopology : true})
+// Prod
+mongoose.connect('mongodb+srv://test:test@cluster0.gckbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology : true})
 .then(() => console.log('Connected to MongoDB'))
 .catch((err)=> console.log(err));
 
