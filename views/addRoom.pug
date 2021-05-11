@@ -6,3 +6,13 @@ block headTitle
 block content
     div(class="row move-down")
         div(class="col-sm")
+            H1 Patalpos pridėjimas 
+            p Prašome suvesti pridedamos patalpos duomenis 
+            form.form-signin(action='/roomData/add', method='POST')
+                label(style='sr-only' for='inputText') Patalpos numeris
+                input(for='inputRoomNumber' class='form-control' type='text' name='roomNumber' placeholder='505' required='True')
+                label(style='sr-only' for='inputRoomNumber') Patalpos pavadinimas
+                input(for='inputRoomName' class='form-control' type='text' name='roomCname' placeholder='Auditorija' required='True')
+                label(style='sr-only' for='inputRoomInfo') Patalpos informacija / komentaras
+                input(for='inputRoomInfo' class='form-control' type='text' name='roomInfo' placeholder='Žalioji auditorija' required='True')
+                button(class='btn btn-lg btn-primary btn-block' type='submit') Saugoti

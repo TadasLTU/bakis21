@@ -52,6 +52,16 @@ app.use(passport.session());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//Flash midleware
+app.use(require('flash')());
+app.use((req, res, next) => {
+  res.locals.success_msg_login = req.flash('success_msg_login');
+  res.locals.error_msg_login = req.flash('error_msg_login');
+  next();
+})
+
+
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

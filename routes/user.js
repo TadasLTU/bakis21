@@ -15,7 +15,8 @@ router.post('/login', (req, res, next) => {
   console.log(req.body);
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/user/login'
+    failureRedirect: '/user/login',
+    failureFlash: true,
   })(req, res, next);
 });
 
@@ -36,7 +37,7 @@ router.post('/register', ensureAuthenticated, (req, res) => {
   console.log(req.body);
   const { name, lname, email, phone, password, password2, } = req.body;
   let errors = [];
-  console.log('Test');
+  // console.log('Test');
 
   if (!name || !lname|| !email || !phone|| !password || !password2) 
   {
@@ -97,7 +98,7 @@ router.post('/register', ensureAuthenticated, (req, res) => {
               .save()
               .then(user => {
                 // req.flash(
-                //   'success_msg',
+                //   'success_msg_login',
                 //   'You are now registered and can log in'
                 // );
                 res.redirect('/user/login');

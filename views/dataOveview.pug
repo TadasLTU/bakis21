@@ -20,23 +20,15 @@ block content
                         th Numeris 
                         th Pavadinimas
                         th Komentaras
-                        //- th Veiksmas
+                        th Veiksmas
                 tbody
-                    tr(class='clickable-row' data-href='https://google.com')
-                        td 1,001
-                        td Lorem
-                        td ipsum
-                        td dolor
-                    tr(class='clickable-row' data-href='https://google.com')
-                        td 1,002
-                        td amet
-                        td consectetur
-                        td adipiscing
-                    tr(class='clickable-row' data-href='https://google.com')
-                        td 1,003
-                        td Integer
-                        td nec
-                        td odio
+                    //- tr(class='clickable-row' data-href='https://google.com')
+                    //-     td 1,001
+                    //-     td Lorem
+                    //-     td ipsum
+                    //-     td dolor
+                    each note in data
+                        include dataOverviewRow.pug
                     
             script(src='//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
             script $(document).ready(function($) {$(".clickable-row").click(function() {window.location = $(this).data("href");});});

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const RoomSchema = new mongoose.Schema({
-    controleID: {
+    controlID: {
         type: String,
         default: '-1',
         required: false
@@ -15,7 +15,7 @@ const RoomSchema = new mongoose.Schema({
         default: Date.now
     },
     roomInfo: {
-        type: string,
+        type: String,
         required: false
     },
     roomNumber: {
