@@ -1,17 +1,3 @@
-// // const User = require("../models/user_Schema.js")
-
-// const express = require('express');
-// const router  = express.Router();
-// //login page
-// router.get('/login', (req,res)=>{
-//     res.render('login');
-// })
-
-// module.exports = router; 
-
-
-
-  
 const express = require('express');
 const router  = express.Router();
 const bcrypt = require('bcryptjs');
@@ -34,7 +20,7 @@ router.post('/login', (req, res, next) => {
 });
 
 // Logout
-router.get('/logout', (req, res) => {
+router.get('/logout', ensureAuthenticated, (req, res) => {
   req.logout();
   //req.flash('success_msg', 'You are logged out');
   res.redirect('/user/login');
@@ -46,7 +32,7 @@ router.get('/register', ensureAuthenticated, (req,res)=>{
 })
 
 //Register request
-router.post('/register', (req, res) => {
+router.post('/register', ensureAuthenticated, (req, res) => {
   console.log(req.body);
   const { name, lname, email, phone, password, password2, } = req.body;
   let errors = [];
@@ -86,7 +72,9 @@ router.post('/register', (req, res) => {
         res.render('register', {
           errors,
           name,
+          lname,
           email,
+          phone,
           password,
           password2
         });

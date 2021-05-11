@@ -1,15 +1,18 @@
 doctype html
-html
-  head
-    meta(charset="utf-8")
-    title Patalpų šildymo valdymo ir kontrolės sistema
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+html 
+    head
+        include config.pug 
+        block headTitle 
+        title= Sistema + '#{}'
+        meta(charset="utf-8")
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     
-  body
-    include menu.pug
-    block content
-    script(src="/javascripts/jquery-2.1.4.min.js")
-    script(src="/javascripts/bootstrap.min.js")
-  footer 
-    include foot.pug
+    body
+        include menu.pug
+        div.container-md
+            block content
+        script(src="/javascripts/jquery-v3.6.0min.js")
+        script(src="/javascripts/bootstrap.min.js")
+    footer 
+        include foot.pug

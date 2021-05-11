@@ -1,29 +1,42 @@
 extends layout 
 
-block content
-    p some text 
-    div 
-    table.table
-    thead
-        tr
-            th(scope='col') #
-            th(scope='col') First
-            th(scope='col') Last
-            th(scope='col') Handle
-    tbody
-        tr
-            th(scope='row') 1
-            td Mark
-            td Otto
-            td @mdo
-        tr
-            th(scope='row') 2
-            td Jacob
-            td Thornton
-            td @fat
-        tr
-            th(scope='row') 3
-            td(colspan='2') Larry the Bird
-            td @twitter
+block headTitle
+    title #{siteTitle} - Peržiūrėti patalpų duomenis
 
-            
+block content
+    div(class="row move-down")
+        div(class="col-sm")
+            H1 Patalpų duomenų peržiūra
+            p Prašome pasirinkti patalpą kurios duomenis norite peržiūrėti
+            style.
+                .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+                    background-color: #color;
+                }
+            .table-responsive
+            table(class="table table-striped table-sm table-hover" atribute="data-toggle")
+                thead
+                    tr
+                        th Patalpos ID
+                        th Numeris 
+                        th Pavadinimas
+                        th Komentaras
+                        //- th Veiksmas
+                tbody
+                    tr(class='clickable-row' data-href='https://google.com')
+                        td 1,001
+                        td Lorem
+                        td ipsum
+                        td dolor
+                    tr(class='clickable-row' data-href='https://google.com')
+                        td 1,002
+                        td amet
+                        td consectetur
+                        td adipiscing
+                    tr(class='clickable-row' data-href='https://google.com')
+                        td 1,003
+                        td Integer
+                        td nec
+                        td odio
+                    
+            script(src='//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+            script $(document).ready(function($) {$(".clickable-row").click(function() {window.location = $(this).data("href");});});
