@@ -1,6 +1,9 @@
 {
   "name": "bakis21",
   "version": "1.0.0",
+  "engines": { 
+      "node": "10.16.3" 
+   },
   "description": "Bakalauro projekto web dalis",
   "main": "app.js",
   "scripts": {
