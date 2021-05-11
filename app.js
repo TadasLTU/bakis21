@@ -24,11 +24,11 @@ var app = express();
 //Passport config
 require('./config/passport')(passport);
 
-var sqlite3 = require('sqlite3');
+// var sqlite3 = require('sqlite3');
 
 
 /*** db aprasymas ***/
-var db = new sqlite3.Database('./data/notes.db');
+// var db = new sqlite3.Database('./data/notes.db');
 
 mongoose.connect('mongodb://root:example@127.0.0.1:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true, useUnifiedTopology : true})
 .then(() => console.log('Connected to MongoDB'))
@@ -61,11 +61,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /*** db idejimas i req ***/
-app.use(function(req, res, next) 
-{
-    req.db = db;
-    next();
-});
+// app.use(function(req, res, next) 
+// {
+//     req.db = db;
+//     next();
+// });
 
 /*** route aprasymas ***/
 app.use('/', routes);
