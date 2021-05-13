@@ -14,6 +14,85 @@ router.get('/', ensureAuthenticated, function(req, res)
         
 });
 
+router.get('/edit', ensureAuthenticated, function(req, res) 
+{
+  Room.find({}, function (err, allRooms) 
+  {
+      if (err) 
+      {
+          console.log(err);
+      } 
+      else 
+      {
+          res.render("roomData_edit", { data: allRooms })
+          console.log(allRooms);
+      }
+  });
+        
+});
+
+router.get('/edit/:ID', ensureAuthenticated, function(req, res) 
+{
+  var selectedRoom = req.params.ID;
+  console.log(selectedRoom);
+  
+  Room.find({ _id: selectedRoom }, function (err, selectedRoom) 
+  {
+      if (err) 
+      {
+          console.log(err);
+      } 
+      else 
+      {
+          res.render("roomData_Edit_spec", { data: selectedRoom })
+          console.log(selectedRoom);
+      }
+  });
+        
+});
+
+router.post('/edit/:ID', ensureAuthenticated, function(req, res) 
+{
+  var selectedRoom = req.params.ID;
+  console.log(selectedRoom);
+  
+  console.log(req.body);
+    const { roomNumber, roomCname, roomInfo } = req.body;
+    let errors = [];  
+
+    if (errors.length > 0) 
+    {
+      res.render('add', {
+        errors,
+        roomNumber,
+        roomCname,
+        roomInfo
+      });
+    }
+    else
+    {
+      console.log('Basic check pass');
+      Room.findOneAndUpdate({_id:selectedRoom}, 
+        {
+          roomNumber:roomNumber,
+          roomCname:roomCname,
+          roomInfo:roomInfo
+        }, {upsert: true}, function(err, doc)
+      {
+        if (err) 
+        {
+          return res.send(500, {error: err});
+        }
+        else
+        {
+          //return res.send('Succesfully saved.');
+          res.redirect('/roomData/edit');
+        }
+      });
+    }    
+        
+});
+
 router.get('/show', ensureAuthenticated, function(req, res) 
 {
     // console.log('Test');

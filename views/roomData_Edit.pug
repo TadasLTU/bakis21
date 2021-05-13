@@ -1,0 +1,35 @@
+extends layout 
+
+block headTitle
+    title #{siteTitle} - Redaguoti patalpą
+
+block content
+    div(class="row move-down")
+        div(class="col-sm")
+            H1 Redaguoti patalpą
+            p Prašome pasirinkti patalpą kurios duomenis norite redaguoti
+            style.
+                .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+                    background-color: #color;
+                }
+            .table-responsive
+            table(class="table table-striped table-sm table-hover" atribute="data-toggle")
+                thead
+                    tr
+                        //- th Patalpos ID
+                        th Patalpos numeris 
+                        th Patalpos pavadinimas
+                        th Patalpos komentaras
+                        //- th Veiksmas
+                tbody
+                    //- tr(class='clickable-row' data-href='https://google.com')
+                    //-     td 1,001
+                    //-     td Lorem
+                    //-     td ipsum
+                    //-     td dolor
+                    each note in data
+                        include roomData_Edit_Row.pug
+                    
+            script(type="text/javascript" src='//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+            script $(document).ready(function($) {$(".clickable-row").click(function() {window.location = $(this).data("href");});});
+            //script $(document).ready(function () {const rows = $("#table").dataTable().fnGetNodes(); $(rows).find('.clickable-row').click( function() {window.location = $(this).data("href");} );});

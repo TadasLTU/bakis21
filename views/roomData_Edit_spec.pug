@@ -1,0 +1,18 @@
+extends layout 
+
+block headTitle
+    title #{siteTitle} - Pridėti patalpą
+
+block content
+    div(class="row move-down")
+        div(class="col-sm")
+            H1 Redaguoti patalpos duomenis 
+            p Čia galite pakeisti pasirinktos patalpos duomenis
+            form.form-signin(action='/roomData/edit/' + `${data[0]._id}`, method='POST')
+                label(style='sr-only' for='inputText') Patalpos numeris
+                input(for='inputRoomNumber' class='form-control' type='text' value=data[0].roomNumber name='roomNumber' required='True')
+                label(style='sr-only' for='inputRoomNumber') Patalpos pavadinimas
+                input(for='inputRoomName' class='form-control' type='text' value=data[0].roomCname name='roomCname' required='True')
+                label(style='sr-only' for='inputRoomInfo') Patalpos informacija / komentaras
+                input(for='inputRoomInfo' class='form-control' type='text' value=data[0].roomInfo name='roomInfo' required='True')
+                button(class='btn btn-lg btn-primary btn-block' type='submit') Saugoti
