@@ -8,13 +8,19 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var bcryptjs = require('bcryptjs');
 var session = require('express-session');
+const cors = require('cors');
+const helmet = require('helmet');
 require('dotenv').config()
+
+
 
 var routes = require('./routes/index');
 var note = require('./routes/note');
 var cats = require('./routes/cats');
 var login = require('./routes/login');
 var user = require('./routes/user');
+var api = require('./routes/api');
+
 
 var passport = require('passport');
 var roomData = require('./routes/roomData');
@@ -30,9 +36,15 @@ require('./config/passport')(passport);
 /*** db aprasymas ***/
 // var db = new sqlite3.Database('./data/notes.db');
 
+// Development
 mongoose.connect('mongodb://root:example@127.0.0.1:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true, useUnifiedTopology : true})
 .then(() => console.log('Connected to MongoDB'))
 .catch((err)=> console.log(err));
+
+// Prod
+// mongoose.connect('mongodb+srv://test:test@cluster0.gckbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology : true})
+// .then(() => console.log('Connected to MongoDB'))
+// .catch((err)=> console.log(err));
 
 //express session
 app.use(
@@ -61,8 +73,19 @@ app.use((req, res, next) => {
 })
 
 
+// adding Helmet to enhance your API's security
+app.use(helmet());
 
-// uncomment after placing your favicon in /public
+// using bodyParser to parse JSON bodies into JS objects
+app.use(bodyParser.json());
+
+// enabling CORS for all requests
+app.use(cors());
+
+// adding morgan to log HTTP requests
+// app.use(morgan('combined'));
+
+
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -84,6 +107,7 @@ app.use('/cat', cats);
 app.use('/login', login);
 app.use('/user', user);
 app.use('/roomData', roomData);
+app.use('/api', api);
 
 //Database
 // const User = require("/models/user.js")

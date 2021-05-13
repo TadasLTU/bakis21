@@ -1,6 +1,10 @@
 extends layout
 
+block headTitle
+    title #{siteTitle} - Registruoti naują vartotoją
+
 block content 
+    //- link(href='/signin.css' rel='stylesheet')
     form.form-horizontal(action='/user/register' method='POST')
         fieldset
             #legend
@@ -21,7 +25,7 @@ block content
                 // E-mail
                 label.control-label(for='email') El. paštas
                 .controls
-                    input#email.input-xlarge(type='text' name='email' placeholder='someone@sth.com')
+                    input#email.input-xlarge(type='email' for='inputEmail' name='email' placeholder='someone@sth.com')
                     p.help-block Kuriamo vartotojo el. paštas
                 // Phone
                 label.control-label(for='phone') Telefono numeris

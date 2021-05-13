@@ -28,12 +28,12 @@ router.get('/logout', ensureAuthenticated, (req, res) => {
 });
 
 //Register page
-router.get('/register', ensureAuthenticated, (req,res)=>{
+router.get('/register', (req,res)=>{
   res.render('register');
 })
 
 //Register request
-router.post('/register', ensureAuthenticated, (req, res) => {
+router.post('/register', (req, res) => {
   console.log(req.body);
   const { name, lname, email, phone, password, password2, } = req.body;
   let errors = [];

@@ -25,6 +25,7 @@
     "bootstrap-table": "^1.18.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "debug": "^4.3.1",
     "dotenv": "^9.0.1",
     "ejs": "^3.1.6",
@@ -33,6 +34,7 @@
     "express-session": "^1.17.1",
     "flash": "^1.1.0",
     "fullcalendar": "^5.6.0",
+    "helmet": "^4.6.0",
     "jade": "^1.11.0",
     "mongoose": "^5.12.7",
     "moongoose": "0.0.5",
@@ -41,6 +43,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "uuid": "^8.3.2"
   }
 }

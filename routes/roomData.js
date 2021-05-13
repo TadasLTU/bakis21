@@ -10,7 +10,7 @@ const { ensureAuthenticated } = require('../config/auth');
 /* GET home page. */
 router.get('/', ensureAuthenticated, function(req, res) 
 {
-    res.render('index');
+    res.render('index', { user: req.user });
         
 });
 
@@ -31,6 +31,27 @@ router.get('/show', ensureAuthenticated, function(req, res)
             console.log(allRooms);
         }
     });
+});
+
+router.get('/show/RoomDetails/:ID', ensureAuthenticated, function(req, res) 
+{
+    // console.log('Test');
+    // res.render('dataOveview', {data:Room});  
+    // console.log(Room.find());
+    // Room.find({}, function (err, allRooms) 
+    // {
+    //     if (err) 
+    //     {
+    //         console.log(err);
+    //     } 
+    //     else 
+    //     {
+    //         res.render("dataOveview", { data: allRooms })
+    //         console.log(allRooms);
+    //     }
+    // });
+
+    res.render('index', { user: req.user });
 });
 
 router.get('/add', ensureAuthenticated, function(req, res) 
