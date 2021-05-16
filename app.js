@@ -35,14 +35,14 @@ require('./config/passport')(passport);
 
 
 // Development
-mongoose.connect('mongodb://root:example@127.0.0.1:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true, useUnifiedTopology : true})
-.then(() => console.log('Connected to MongoDB'))
-.catch((err)=> console.log(err));
-
-// Prod
-// mongoose.connect('mongodb+srv://test:test@cluster0.gckbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology : true})
+// mongoose.connect('mongodb://root:example@127.0.0.1:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true, useUnifiedTopology : true})
 // .then(() => console.log('Connected to MongoDB'))
 // .catch((err)=> console.log(err));
+
+// Prod
+mongoose.connect('mongodb+srv://test:test@cluster0.gckbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology : true})
+.then(() => console.log('Connected to MongoDB'))
+.catch((err)=> console.log(err));
 
 //express session
 app.use(
