@@ -7,7 +7,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       div(class="row move-down")
         ul(class='navbar-nav-rigth')
         //- | Sveiki, #{user.name}
-        | Sveiki, Vartotojas
+        //- | Sveiki, Vartotojas
         a(href='/user/logout' class='btn btn-secondary' role='button') Atsijungti
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
@@ -27,21 +27,33 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 li
                     a.dropdown-item(href='/roomData/edit') Adm. Redaguoti patalpą
                 li
-                    a.dropdown-item(href='#') Sudaryti tvarkarastį
+                    a.dropdown-item(href='calendar') Sudaryti tvarkarastį
                 li
                     a.dropdown-item(href='#') Peržiūrėti patalpų parametrus
           li.nav-item
             a.nav-link(href='/') Adm. Šildymo sezoniškumo valdymas   
-          li.nav-item
-            a.nav-link(href='/') Adm. Valdyti valdiklių nustatymus   
+
+
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false' id='ss1')
+              | Adm. Valdyti valdiklius
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                li
+                    a.dropdown-item(href='/controlerData/editSelection') Adm. Valdyti valdiklių nustatymus  
+                li
+                    a.dropdown-item(href='/controlerData/add') Adm. Pridėti valdiklį  
+                li
+                    a.dropdown-item(href='/') Adm. TODO  
+
+
           li.nav-item.dropdown
             a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false' id='ss1')
               | Adm. Valdyti vartotojus
             ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
                 li
                     a.dropdown-item(href='/user/register') Pridėti naują vartotoją
-                li
-                    a.dropdown-item(href='#') Sudaryti tvarkarastį
-                li
-                    a.dropdown-item(href='#') Peržiūrėti patalpų parametrus      
+                //- li
+                //-     a.dropdown-item(href='#') Sudaryti tvarkarastį
+                //- li
+                //-     a.dropdown-item(href='#') Peržiūrėti patalpų parametrus      
             

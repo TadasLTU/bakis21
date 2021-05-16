@@ -19,22 +19,20 @@ var note = require('./routes/note');
 var cats = require('./routes/cats');
 var login = require('./routes/login');
 var user = require('./routes/user');
+var roomData = require('./routes/roomData');
 var api = require('./routes/api');
+var calendar = require('./routes/calendar');
+var controlerData = require('./routes/controlerData');
 
 
 var passport = require('passport');
-var roomData = require('./routes/roomData');
+
 
 var app = express();
 
 //Passport config
 require('./config/passport')(passport);
 
-// var sqlite3 = require('sqlite3');
-
-
-/*** db aprasymas ***/
-// var db = new sqlite3.Database('./data/notes.db');
 
 // Development
 mongoose.connect('mongodb://root:example@127.0.0.1:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true, useUnifiedTopology : true})
@@ -93,12 +91,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/*** db idejimas i req ***/
-// app.use(function(req, res, next) 
-// {
-//     req.db = db;
-//     next();
-// });
 
 /*** route aprasymas ***/
 app.use('/', routes);
@@ -108,9 +100,10 @@ app.use('/login', login);
 app.use('/user', user);
 app.use('/roomData', roomData);
 app.use('/api', api);
+app.use('/calendar', calendar);
+app.use('/controlerData', controlerData);
 
-//Database
-// const User = require("/models/user.js")
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

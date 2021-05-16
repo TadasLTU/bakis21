@@ -28,8 +28,8 @@ router.get('/logout', ensureAuthenticated, (req, res) => {
 });
 
 //Register page
-router.get('/register', (req,res)=>{
-  res.render('register');
+router.get('/register', ensureAuthenticated, (req,res)=>{
+  res.render('register', {user: req.user});
 })
 
 //Register request

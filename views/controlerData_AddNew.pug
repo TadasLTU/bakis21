@@ -1,0 +1,157 @@
+extends layout
+
+block headTitle
+    title #{siteTitle} - Registruoti naują patalpos valdiklį
+    style. 
+        .reveal-if-active {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+        input[type="radio"]:checked ~ .reveal-if-active,
+        input[type="checkbox"]:checked ~ .reveal-if-active {
+            opacity: 1;
+            max-height: 100px; /* little bit of a magic number :( */
+            overflow: visible;
+        }
+        .reveal-if-active {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: 0.5s;
+            input[type="radio"]:checked ~ &,
+            input[type="checkbox"]:checked ~ & {
+                opacity: 1;
+                max-height: 100px;
+                overflow: visible;
+                padding: 10px 20px;
+                transform: scale(1);
+            }
+        }
+
+        
+
+block content 
+    H1 Pridėti naują patalpos valdiklį
+    p Čia galite suvesti visus reikiamus duomenis, norint pridėti naują patalpos valdiklį
+    form(action='/controlerData/add', method='POST')
+        // Date
+        //- .mb3 
+        //-     .flex-row.d-flex.justify-content-center
+        //-         .col-xl-5.col-lg-6.col-11.px-1
+        //-             .input-group.input-daterange
+        //-                 label Select Date Range :
+        //-                 input(type='text' name='daterange' value='01/01/2018 - 01/15/2018' readonly='')
+
+
+
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Install date
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='controler_instalDate')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Norima temperatūra
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='room_requiredTemp')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Control IP 
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='controler_ip')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Server IP
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='controler_serverip')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Sync interval
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='controler_syncInt')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        .mb-3
+            label.form-label(for='exampleInputEmail1') S/N
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='controler_SN')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Comment
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='controler_comment')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        .mb-3
+            label.form-label(for='exampleInputEmail1' id="insertinputs") Room to add to (dropDownMenu)
+            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp' name='controler_controledRoom')
+            #emailHelp.form-text We'll never share your email with anyone else.
+        div
+            div(class='mt-3')
+                input#choice-animals-dogs(type='checkbox' name='choice-animals')
+                label(for='choice-animals-dogs') Prideti vožtuvus
+                .reveal-if-active
+                    div
+                        p Prašome užpildyti papildomus laukus
+                        label(for='exampleInputEmail1' id="insertinputs") s/n
+                        input#exampleInputEmail1(type='text' aria-describedby='emailHelp')
+                        #emailHelp.form-text We'll never share your email with anyone else.
+                        label(for='exampleInputEmail1' id="insertinputs") Komentaras
+                        input#exampleInputEmail1(type='text' aria-describedby='emailHelp')
+                        #emailHelp.form-text We'll never share your email with anyone else.
+                        br
+            div(class='mt-3')
+                input#choice-animals-dogs(type='checkbox' name='choice-animal3')
+                label(for='choice-animals-dogs3') Prideti langus
+                .reveal-if-active
+                    p Prašome užpildyti papildomus laukus
+                    label(for='choice-animals-dogs3' id="insertinputs") s/n
+                    input#exampleInputEmail1(type='text' aria-describedby='emailHelp')
+                    #emailHelp.form-text We'll never share your email with anyone else.
+                    label(for='choice-animals-dogs3' id="insertinputs") Komentaras
+                    input#exampleInputEmail1(type='text' aria-describedby='emailHelp')
+                    #emailHelp.form-text We'll never share your email with anyone else.
+            div
+                input#choice-animals-dogs(type='checkbox' name='choice-animal2')
+                label(for='choice-animals-dogs2') Prideti jutiklius
+                .reveal-if-active
+                    p Prašome pasirinkti
+                    input#choice-animals-dogs2(type='checkbox' name='choice-animals21')
+                    label(for='choice-animals-dogs21') Prideti temperatura
+                    .reveal-if-active
+                        p Prašome užpildyti papildomus laukus
+                        label.form-label(for='choice-animals-dogs21' id="insertinputs") s/n
+                        input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp')
+                        #emailHelp.form-text We'll never share your email with anyone else.
+                        label.form-label(for='choice-animals-dogs21' id="insertinputs") Komentaras
+                        input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp')
+                        #emailHelp.form-text We'll never share your email with anyone else.
+                    div
+                        input#choice-animals-dogs2(type='checkbox' name='choice-animals22')
+                        label(for='choice-animals-dogs22') Prideti dregme
+                        .reveal-if-active
+                            p Prašome užpildyti papildomus laukus
+                            label.form-label(for='choice-animals-dogs22' id="insertinputs") s/n
+                            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp')
+                            #emailHelp.form-text We'll never share your email with anyone else.
+                            label.form-label(for='choice-animals-dogs22' id="insertinputs") Komentaras
+                            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp')
+                            #emailHelp.form-text We'll never share your email with anyone else.
+                    div
+                        input#choice-animals-dogs2(type='checkbox' name='choice-animals23')
+                        label(for='choice-animals-dogs23') Prideti judesi
+                        .reveal-if-active
+                            p Prašome užpildyti papildomus laukus
+                            label.form-label(for='choice-animals-dogs23' id="insertinputs") s/n
+                            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp')
+                            #emailHelp.form-text We'll never share your email with anyone else.
+                            label.form-label(for='choice-animals-dogs23' id="insertinputs") Komentaras
+                            input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp')
+                            #emailHelp.form-text We'll never share your email with anyone else.
+            
+
+        
+
+
+
+        .mb-3.form-check
+            input#exampleCheck1.form-check-input(type='checkbox')
+            label.form-check-label(for='exampleCheck1') Check me out
+        button.btn.btn-primary(type='submit') Submit
+
+    scrypt(src='revealScript.js')
+    scrypt(src='dynamicInputAdd.js')
+
+    

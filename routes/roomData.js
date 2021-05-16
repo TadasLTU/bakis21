@@ -24,8 +24,8 @@ router.get('/edit', ensureAuthenticated, function(req, res)
       } 
       else 
       {
-          res.render("roomData_edit", { data: allRooms })
-          console.log(allRooms);
+          res.render("roomData_edit", { data: allRooms, user: req.user })
+          // console.log(allRooms);
       }
   });
         
@@ -44,8 +44,8 @@ router.get('/edit/:ID', ensureAuthenticated, function(req, res)
       } 
       else 
       {
-          res.render("roomData_Edit_spec", { data: selectedRoom })
-          console.log(selectedRoom);
+          res.render("roomData_Edit_spec", { data: selectedRoom, user: req.user })
+          // console.log(selectedRoom);
       }
   });
         
@@ -106,7 +106,7 @@ router.get('/show', ensureAuthenticated, function(req, res)
         } 
         else 
         {
-            res.render("dataOveview", { data: allRooms })
+            res.render("dataOveview", { data: allRooms, user: req.user })
             console.log(allRooms);
         }
     });
@@ -135,7 +135,7 @@ router.get('/show/RoomDetails/:ID', ensureAuthenticated, function(req, res)
 
 router.get('/add', ensureAuthenticated, function(req, res) 
 {
-    res.render('addRoom');
+    res.render('addRoom', {user: req.user});
         
 });
 
